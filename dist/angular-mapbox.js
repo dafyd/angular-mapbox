@@ -33,6 +33,7 @@ angular.module('angularMapbox').directive('mapbox', function($compile, $q) {
     scope: true,
     replace: true,
     link: function(scope, element, attrs) {
+      L.mapbox.accessToken = attrs.apiKey;
       scope.map = L.mapbox.map(element[0], attrs.mapId, {
         accessToken: attrs.apiKey
       });
