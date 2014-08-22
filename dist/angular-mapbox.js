@@ -39,10 +39,10 @@ angular.module('angularMapbox').directive('mapbox', function($compile, $q) {
       });
       _mapboxMap.resolve(scope.map);
 
-      var mapWidth = attrs.width || 500;
-      var mapHeight = attrs.height || 500;
-      element.css('width', mapWidth + 'px');
-      element.css('height', mapHeight + 'px');
+      var mapWidth = attrs.width || '500px';
+      var mapHeight = attrs.height || '500px';
+      element.css('width', mapWidth);
+      element.css('height', mapHeight);
 
       var zoom = attrs.zoom || 12;
       if(attrs.lat && attrs.lng) {
