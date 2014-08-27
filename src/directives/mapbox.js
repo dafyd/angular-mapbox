@@ -20,7 +20,9 @@ angular.module('angularMapbox').directive('mapbox', function($compile, $q) {
 
       var zoom = attrs.zoom || 12;
       if(attrs.lat && attrs.lng) {
-        scope.map.setView([attrs.lat, attrs.lng], zoom);
+        scope.map
+        	.setView([attrs.lat, attrs.lng], zoom)
+        	.invalidateSize();
       }
 
       scope.isClusteringMarkers = attrs.clusterMarkers !== undefined;
@@ -45,6 +47,7 @@ angular.module('angularMapbox').directive('mapbox', function($compile, $q) {
           scope[attrs.onZoom](scope.map.getBounds());
         });
       }
+      
     },
     template: '<div class="angular-mapbox-map" ng-transclude></div>',
     controller: function($scope) {
